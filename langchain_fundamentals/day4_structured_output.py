@@ -1,3 +1,6 @@
+# day4_structured_output.py
+# Structured Output using Pydantic + with_structured_output() 
+
 from langchain_groq import ChatGroq
 from pydantic import BaseModel,Field 
 from typing import Literal 
@@ -16,14 +19,45 @@ class productReview(BaseModel):
 # Step 2: Wrap the model to return structured output
 structured_llm = llm.with_structured_output(productReview) 
 
-# Step 3: Invoke with a raw review text
+
+# Step 3: Invoke with a raw review text 
 review_text = """
 This laptop is amazing for the price. Battery lasts all day and it's fast
 for coding. Only complaint is the fan gets a bit loud under heavy load.
 """ 
+
+
 result = structured_llm.invoke(f"Analyze this review: {review_text}")
 
 # Step 4: Access structured fields directly (no manual parsing needed)
 print("Rating:", result.rating)
 print("Sentiment:", result.sentiment)
-print("Summary:", result.summary)
+print("Summary:", result.summary) 
+
+
+# Typ edDict version (lighter, no runtime validation) 
+from typing_extensions import TypedDict
+
+class ProductiveReviewTD(TypedDict):
+    rating: int
+    sentiment:str
+    summary:str 
+
+structured_llm_td = llm.with_structured_output(ProductiveReviewTD)
+results_td = structured_llm_td.invoke(f"Analyze this review :{review_text}")
+print(results_td["rating"]) 
+
+# JSON Schema version
+json__schema = {
+    "title":"ProductiveReview",
+    "type":"object",
+    "properties":{
+        "rating":{"type":"integer"},
+        "sentiment":{"type":"string"},
+        "summary":{"type":"string"}
+    },
+    "required": ["rating", "sentiment", "summary"] 
+}
+structures_llm_json = llm.with_structured_output(json__schema)
+result_json = structures_llm_json.invoke(f"Analyze this review: {review_text}")
+print(result_json["rating"])
