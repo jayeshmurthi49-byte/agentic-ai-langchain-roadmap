@@ -1,0 +1,27 @@
+REVISION NOTES
+
+1. LangChain exists to simplify building LLM-powered apps - handles 
+   orchestration (chains, prompts, memory) so you don't rebuild it from scratch.
+
+2. Structured Output (with_structured_output) forces the LLM to return 
+   data matching a schema - Pydantic (validated), TypedDict (lightweight), 
+   or JSON Schema (portable).
+
+3. Real bug found today: Pydantic field typed as `int` failed when the LLM 
+   returned a float (4.5) - Groq's tool validation rejected it. 
+   Fix: be explicit in the Field description (e.g. "integer, no decimals").
+
+4. Output Parsers (StrOutputParser, JsonOutputParser, PydanticOutputParser) 
+   work by injecting format instructions into the prompt - more universal 
+   than with_structured_output(), since they work even on models without 
+   native structured output support.
+
+5. Chains connect Runnables so one step's output feeds the next - LCEL's 
+   `|` operator builds this declaratively (prompt | llm | parser).
+
+6. RAG pipeline = Load -> Split -> Embed/Store -> Retrieve -> Augment -> 
+   Generate. Each stage (Days 9-13) is a separate LangChain component 
+   wired together into one chain.
+
+STATUS: Revising Days 1-13. Hit and fixed a real Pydantic validation 
+error today - good practical debugging experience.
