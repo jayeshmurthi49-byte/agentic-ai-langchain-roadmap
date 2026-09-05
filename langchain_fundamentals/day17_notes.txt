@@ -1,0 +1,39 @@
+
+
+1. What is LangChain? Why does it exist?
+LangChain is a framework for building LLM applications.
+It provides reusable components for prompts, models, tools, memory, retrievers, and chains.
+It makes it easier to connect these components into AI applications.
+
+2. LangChain Components + Models
+Main components include prompts, models, output parsers, retrievers, tools, and runnables.
+Models are the LLMs or chat models that generate responses.
+LangChain provides a common interface to work with different models.
+
+3. Prompts + Messages
+A prompt gives instructions and input to the model.
+Chat models use messages such as SystemMessage, HumanMessage, and AIMessage.
+System = behavior/instructions, Human = user input, AI = model response.
+
+4. Structured Output (TypedDict vs Pydantic)
+Structured output makes the model return data in a defined structure.
+TypedDict mainly defines the expected dictionary structure.
+Pydantic provides structure plus validation and type checking.
+
+5. Output Parsers vs with_structured_output()
+Output parsers convert or validate the model's raw output into a desired format.
+with_structured_output() directly asks the model to return data according to a schema.
+It is generally simpler when structured output is required.
+
+6. Chains (Simple, Sequential, Parallel, Conditional)
+Simple chain: one step connected to another.
+Sequential chain: multiple steps run one after another.
+Parallel chain: multiple operations run at the same time using the same input.
+Conditional chain: chooses a path based on a condition.
+
+7-8. Runnables + LCEL
+Runnable is a LangChain component that can be executed and connected with other components.
+LCEL (LangChain Expression Language) is used to compose runnables using operators like |.
+Example flow:
+prompt | model | parser
+This creates a pipeline where the output of one step becomes the input of the next.
