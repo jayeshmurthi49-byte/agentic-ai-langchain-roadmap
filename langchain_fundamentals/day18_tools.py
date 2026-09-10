@@ -38,3 +38,14 @@ if response.tool_calls:
     if tool_call["name"] == "add":
         result = add.invoke(tool_call["args"])
         print("Tool execution result:", result)
+
+
+# --- Built-in Tools ---
+from langchain_community.tools import DuckDuckGoSearchRun
+
+search_tool = DuckDuckGoSearchRun()
+print("Built-in tool name:", search_tool.name)
+print("Built-in tool description:", search_tool.description)
+
+search_result = search_tool.invoke("current weather in Mumbai")
+print("Search result:", search_result)
