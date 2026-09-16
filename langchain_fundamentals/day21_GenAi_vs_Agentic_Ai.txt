@@ -1,0 +1,28 @@
+LANGGRAPH - VIDEO 1: GENERATIVE AI VS AGENTIC AI
+
+WHAT I LEARNED:
+
+1. Generative AI:
+   AI that generates new content - text, images, audio, video - mimicking 
+   human-created output. Single input -> single output. Cannot take 
+   autonomous action on its own.
+
+2. Agentic AI:
+   Goal-oriented AI - focused on completing a goal, not just generating 
+   content. Can take actions, has memory, adapts, and can provide advice/
+   decisions based on reasoning - not just a single response.
+
+3. Key relationship (corrected):
+   Agentic AI is NOT a subset of Generative AI, and Generative AI is not 
+   a subset of Agentic AI either - rather, Agentic AI BUILDS ON TOP OF 
+   Generative AI. An agent typically uses a generative model (the LLM) as 
+   its reasoning engine, then adds planning, tool use, memory, and 
+   autonomous action around it.
+
+4. Practical connection to what I've built:
+   Yesterday's Tool Calling + Agent code is a real example of Agentic AI - 
+   the LLM (generative) decides what to do, but the tool execution, 
+   looping, and goal completion is what makes it "agentic."
+
+STATUS: LangGraph playlist started (Video 1 of 5 planned). 
+Next: LangChain vs LangGraph (Video 3).
