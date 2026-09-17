@@ -1,0 +1,43 @@
+LANGGRAPH - VIDEO 2: WHAT IS AGENTIC AI?
+
+WHAT I LEARNED:
+
+1. Core Definition:
+   Agentic AI is goal-oriented - it persists toward an objective and takes 
+   action to achieve it, with minimal human interaction. The defining term 
+   is AUTONOMY.
+
+2. Key Characteristics of Agentic AI:
+   - Autonomous
+   - Goal-oriented
+   - Reasoning
+   - Adaptive
+   - Planning
+   - Context-aware
+
+3. Controlling Autonomy:
+   Full autonomy can be risky, so it's managed through:
+   - HITL (Human-In-The-Loop)
+   - Guardrails
+   - Override controls
+   - Permissions
+   These let a human step in, approve, or restrict what the agent is 
+   allowed to do on its own.
+
+4. Core Components of an Agentic AI System:
+   - Brain - the LLM, does the reasoning
+   - Orchestrator - manages the flow/sequence of steps
+   - Tools - what the agent can act with
+   - Memory - retains context across steps/conversations
+   - Supervisor - oversight/control layer (ties to HITL/guardrails)
+
+5. Connection to what I've already built:
+   My currency converter agent (Day 16) already demonstrates 3 of these 
+   5 components hands-on - Brain (the LLM), Orchestrator (my while-loop, 
+   later automated by create_agent), and Tools (get_conversion_rate, 
+   convert_currency). Memory and Supervisor are components I haven't 
+   built yet - LangGraph (starting Video 3) is where these get built 
+   properly.
+
+STATUS: LangGraph playlist - Video 2 of 5 planned complete.
+Next: LangChain vs LangGraph (Video 3) - first hands-on coding video.
