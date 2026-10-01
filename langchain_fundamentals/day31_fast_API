@@ -1,0 +1,35 @@
+FASTAPI FOR ML - VIDEO 1: WHAT IS AN API
+
+WHAT I LEARNED:
+
+1. What is an API:
+   A mechanism that enables software to communicate with each other - like
+   frontend and backend communicating through a set of rules and protocols.
+
+2. The problem before APIs (monolithic architecture):
+   Pre-API, apps were built as a single monolithic architecture. This caused
+   problems when you needed to build a website AND an Android app AND an
+   iOS app - each would need its own separate connection to the backend/
+   database, duplicating effort and logic.
+
+3. How APIs solve this:
+   You connect your backend to the database once, and expose an API.
+   The website, Android app, and iOS app all hit the SAME API with their
+   inputs and get back the data they need - no duplicated backend logic
+   per platform.
+
+4. Data format - JSON:
+   APIs provide data in JSON format, which is a universal data format
+   compatible across languages - Java, Python, and more. This is what
+   makes an API usable by any client, regardless of what language that
+   client is built in.
+
+5. Security benefit:
+   APIs let you provide the USE of software/data without giving direct
+   access to the underlying dataset/database itself.
+
+6. The restaurant analogy:
+   The waiter takes your order, goes to the kitchen, the kitchen (chef)
+   prepares the food, and the waiter brings it back to you. You never
+   access the kitchen directly - same as a client never directly touching
+   the backend/database, only going through the API.
